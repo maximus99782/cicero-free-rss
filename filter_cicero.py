@@ -2,6 +2,7 @@ import time
 import traceback
 import requests
 import feedparser
+import re
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from email.utils import format_datetime
@@ -40,14 +41,26 @@ def fetch_source_feed():
 def is_paywalled(url: str) -> bool:
     r = requests.get(url, headers=HEADERS, timeout=20)
     r.raise_for_status()
-    html = r.text
+    soup = BeautifulSoup(r.text, "html.parser")
 
-    if any(m in html for m in PAYWALL_MARKERS):
+    page_text = soup.get_text(" ", strip=True)
+
+    # Require multiple paywall-only phrases together (AND), not just one
+    must_have = [
+        "Sie haben schon ein Cicero-Plus Abo",
+        "JETZT TESTEN",
+        "Der erste Monat kostet",
+    ]
+
+    if all(m in page_text for m in must_have):
         return True
 
-    soup = BeautifulSoup(html, "html.parser")
-    text = soup.get_text(" ", strip=True)
-    return any(m in text for m in PAYWALL_MARKERS)
+    # Backup: detect the big "Monatsabo" offer block by structure-ish heuristic
+    # Look for "Monatsabo" near "JETZT TESTEN" in the same local text window
+    if "Monatsabo" in page_text and "JETZT TESTEN" in page_text:
+        return True
+
+    return False
 
 def main():
     debug_lines = []
