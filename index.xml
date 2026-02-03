@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Cicero (free-only)</title>
+    <link>https://www.cicero.de/</link>
+    <description>Filtered RSS feed that removes Cicero+ paywalled articles</description>
+    <lastBuildDate>Tue, 03 Feb 2026 19:36:57 +0000</lastBuildDate>
+    
+  </channel>
+</rss>
