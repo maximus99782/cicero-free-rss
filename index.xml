@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Cicero (free-only)</title>
+    <title>Cicero (free-only-ish)</title>
     <link>https://www.cicero.de/</link>
-    <description>Filtered RSS feed that removes Cicero+ paywalled articles</description>
-    <lastBuildDate>Tue, 03 Feb 2026 19:52:10 +0000</lastBuildDate>
+    <description>Filtered RSS feed; see debug.txt for run details</description>
+    <lastBuildDate>Tue, 03 Feb 2026 19:57:36 +0000</lastBuildDate>
     
   </channel>
 </rss>
