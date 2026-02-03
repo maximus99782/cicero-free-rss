@@ -60,7 +60,7 @@ def main():
                 continue
         except Exception:
             # Fail-closed: if request fails, drop item so paid items do not slip through
-            continue
+            pass
 
         title = xml_escape(e.get("title", ""))
         desc = xml_escape(e.get("summary", ""))
