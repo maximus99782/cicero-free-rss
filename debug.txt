@@ -1,8 +1,8 @@
-run_utc=2026-02-06T11:02:16.909229+00:00
+run_utc=2026-02-06T11:49:06.301204+00:00
 source_rss_http_status=200
 source_rss_content_type=application/rss+xml; charset=utf-8
 source_entries_count=10
-kept_items=3
-dropped_paywalled=7
+kept_items=2
+dropped_paywalled=8
 dropped_no_link=0
 paywall_check_errors=0
